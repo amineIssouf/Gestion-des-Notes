@@ -192,3 +192,105 @@ $etudiants = [
         'date' => '18/12/2025',
     ],
 ];
+
+
+if(!isset($_GET['eleve']))
+{
+    header('Location: eleve.php');
+    exit;
+}
+
+$selectionner_lid= (int)$_GET['eleve'];
+$selectionner_lenom= $eleves1[$selectionner_lid] ?? "eleve Inconnu";
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulletin de notes</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+    <li><a href="eleve.php">selectioner un autre eleve</a></li>
+</head>
+<body>
+    <?php
+    echo "Bulletin de notes de : ",$selectionner_lenom;
+    ?>
+    <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Classe</th>
+                <th>Matier</th>
+                <th>Note</th>
+                <th>Date</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <?php
+            $note_full=false;
+
+
+
+            foreach($etudiants as $etudiant)
+            {
+                if((int)$etudiant['id'] === $selectionner_lid)
+                {
+                    $note_full = true;
+                    echo "<tr>";
+                    echo "<td>" . $etudiant['classe'] . "</td>";
+                    echo "<td>" . $etudiant['matiere'] . "</td>";
+                    echo "<td>" . $etudiant['note'] . "</td>";
+                    echo "<td>" . $etudiant['date'] . "</td>";
+                    echo "</tr";
+
+                }
+            }
+            
+            
+                
+            
+
+            if(!$note_full)
+            {
+                echo "Aucune note trouvée pour cet élève.";
+            }
+                
+            ?>
+
+
+        </tbody>
+    </table>
+    
+
+    
+</body>
+</html>
