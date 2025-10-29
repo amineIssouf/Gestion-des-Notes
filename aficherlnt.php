@@ -270,7 +270,7 @@ $selectionner_lenom= $eleves1[$selectionner_lid] ?? "eleve Inconnu";
                     echo "<td>" . $etudiant['matiere'] . "</td>";
                     echo "<td>" . $etudiant['note'] . "</td>";
                     echo "<td>" . $etudiant['date'] . "</td>";
-                    echo "</tr";
+                    echo "</tr>";
 
                 }
             }

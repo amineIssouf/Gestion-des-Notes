@@ -36,7 +36,7 @@
 
     <h1>Liste des classe</h1>
         <form action=""method="POST">
-            <h1>ID Libellé Actions</h1>
+            <h1>ID Classe Actions</h1>
             <label for="classe">classe</label>
             <input type="text" name="classe">
             <input type="submit" value="Ajouter">
